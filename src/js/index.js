@@ -1,12 +1,16 @@
-//import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
-
-// include your styles into the webpack bundle
+import { Counter } from "./component/Counter.jsx";
 import "../styles/index.css";
 
-//import your own components
-import Home from "./component/home.jsx";
+let counter = 0;
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+function renderCounter() {
+  ReactDOM.render(
+    <Counter count={counter} color="#1A120B" />,
+    document.querySelector("#app")
+  );
+  counter++;
+}
+
+setInterval(renderCounter, 1000);
